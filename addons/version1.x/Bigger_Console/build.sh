@@ -185,19 +185,7 @@ cp -rf -- $PTERO/temp/Bigger_Console/* "$PTERO"
 rm -rf $PTERO/temp
 }
 
-# Check if it is already installed #
-verify_installation() {
-if grep -q "Installed By Auto-Addons" "$BIGGER_CONSOLE"; then
-    print_error "This addon is already installed in your panel, aborting..."
-    exit 1
-  else
-    dependencies
-    backup
-    download_files
-    production
-    bye
-fi
-}
+
 
 # Check if another conflicting addon is installed #
 check_conflict() {
@@ -246,7 +234,6 @@ if [ "$PTERO_INSTALL" == true ]; then
 
     compatibility
     check_conflict
-    verify_installation
   elif [ "$PTERO_INSTALL" == false ]; then
     print_warning "The installation of your panel could not be located."
     echo -e "* ${GREEN}EXAMPLE${RESET}: ${YELLOW}/var/www/mypanel${RESET}"
@@ -258,7 +245,6 @@ if [ "$PTERO_INSTALL" == true ]; then
         update_variables
         compatibility
         check_conflict
-        verify_installation
       else
         print_error "The directory you entered does not exist."
         find_pterodactyl
