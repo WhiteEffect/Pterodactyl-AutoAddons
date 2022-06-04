@@ -203,15 +203,7 @@ fi
 check_conflict() {
 print "Checking if a similar/conflicting addon is already installed..."
 
-sleep 2
-if [ -f "$MORE_BUTTONS" ]; then
-    print_warning "The addon ${YELLOW}More Buttons${RESET} is already installed, aborting..."
-    exit 1
-  elif [ -f "$MC_PASTE" ]; then
-    print_warning "The addon ${YELLOW}MC Paste${RESET} is already installed, aborting..."
-    exit 1
-fi
-}
+
 
 # Panel Production #
 production() {
